@@ -1,16 +1,10 @@
-import { RouterProvider } from 'react-router-dom'
-import { router } from './router'
-import { AuthProvider } from './providers/AuthProvider'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
-const queryClient = new QueryClient()
+import { AppRouter } from './router'
+import AppProviders from './providers/AppProviders'
 
 export default function App() {
     return (
-        <QueryClientProvider client={queryClient}>
-            <AuthProvider>
-                <RouterProvider router={router} />
-            </AuthProvider>
-        </QueryClientProvider>
+        <AppProviders>
+            <AppRouter />
+        </AppProviders>
     )
 }
